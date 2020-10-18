@@ -1,5 +1,5 @@
   [
     { "id": 1, "label": "Make awesome app", "important": false, "done": false },
-    { "id": 2, "label": "Watch TV", "important": true, "done": false },
-    { "id": 3, "label": "Play basdasdasdball", "important": false, "done": false }
+    { "id": 2, "label": "Watch TV", "important": false, "done": false },
+    { "id": 3, "label": "Play basketball", "important": false, "done": false }
   ]

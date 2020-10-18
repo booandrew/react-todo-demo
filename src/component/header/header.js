@@ -2,14 +2,14 @@ import React from 'react';
 import { PageHeader } from 'antd';
 import styled from 'styled-components'
 
-const Header = () => {
+const Header = ({doneCount, todoCount}) => {
   return (
     <HeaderWrapper>
       <Navbar>
         <PageHeader
           ghost={false}
           title="TodoApp"
-          subTitle='1 more 3 done'
+          subTitle={`${todoCount} more todo, ${doneCount} done`}
         >
         </PageHeader>
       </Navbar>
