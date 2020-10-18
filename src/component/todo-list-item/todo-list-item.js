@@ -46,6 +46,10 @@ const TodoListItem = ({
 const TextWrapper = styled.div`
   word-wrap: break-word;
   width: 250px;
+  @media (max-width: 480px) {
+    width: 200px;
+  }
+  
 `
 
 const CustomButton = styled(Button)`
@@ -62,13 +66,14 @@ const CustomText = styled(Text)`
 `
 
 const ButtonWrapper = styled.span`
+  display: flex;
   width: 80px;
 `
 
 const Item = styled.div`
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
 `
 
 export default TodoListItem;

@@ -20,6 +20,7 @@ const Navbar = styled.div`
   justify-content: space-between;
   align-items: baseline;  
   width: 100%;
+  margin-top: 15px;
 `
 
 const Title = styled.h1`

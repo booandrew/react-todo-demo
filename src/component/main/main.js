@@ -140,10 +140,7 @@ const FilterWrapper = styled.div`
 `
 
 const Layout = styled.div`
-  padding: 20px;
-  @media (max-width: 992px) {
-    margin: 0px 20px;
-  }
+  padding: 0px 20px;
 `
 
 export default Main;
