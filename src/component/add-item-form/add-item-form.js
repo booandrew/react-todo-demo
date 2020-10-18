@@ -20,7 +20,7 @@ const AddItemForm = ({ onAdded }) => {
   return (
     <CustomForm onSubmit={onSubmit}>
         <InputWrapper>
-          <Input placeholder="type new task" onChange={onLabelChange} value={label} />
+          <Input placeholder="type new task" onChange={onLabelChange} value={label} size="large" />
         </InputWrapper>
         <Button
           type="primary"

@@ -101,24 +101,20 @@ const Main = () => {
         <Header
           todoCount={todoCount}
           doneCount={doneCount} />
-      </Container>
 
-      <Container>
-        <InputWrapper>
-          <SearchPanel onSearch={onSearch} value={term} />
-        </InputWrapper>
-        <TodoStatusFilter onToggleFilter={onToggleFilter} />
-      </Container>
+        <FilterWrapper>
+          <InputWrapper>
+            <SearchPanel onSearch={onSearch} value={term} />
+          </InputWrapper>
+          <TodoStatusFilter onToggleFilter={onToggleFilter} />
+        </FilterWrapper>
 
-      <Container>
         <TodoList
           todos={visibleItems}
           onDeleted={deleteTodo}
           onToggleDone={setDone}
           onToggleImportant={setImportant} />
-      </Container>
 
-      <Container>
         <AddItemForm onAdded={addTodo} />
       </Container>
 
@@ -134,7 +130,7 @@ const Container = styled.div`
 
 const InputWrapper = styled.div`
   flex: .97;
-  @media (max-width: 1000px) {
+  @media (max-width: 992px) {
     width: 100%;
     flex: 1;
     margin-bottom: 10px;
@@ -146,14 +142,14 @@ const FilterWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  @media (max-width: 420px) {
+  @media (max-width: 992px) {
     flex-direction: column;
   }
 `
 
 const Layout = styled.div`
   padding: 20px;
-  @media (max-width: 100px) {
+  @media (max-width: 992px) {
     margin: 0px 20px;
   }
 `
