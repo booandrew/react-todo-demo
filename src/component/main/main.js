@@ -19,7 +19,7 @@ const Main = () => {
 
   const [todoData, setTodos] = useState([])
   const [term, setTerm] = useState('')
-  const [filter, setfilter] = useState('done')
+  const [filter, setfilter] = useState('')
   const doneCount = todoData.filter((el) => el.done).length
   const todoCount = todoData.length - doneCount
 
@@ -34,10 +34,12 @@ const Main = () => {
 
   const filterItems = (items, filter) => {
     switch (filter) {
-      case 'done': items.filter(e => e.done)
-      case 'active': items.filter(e => !e.done)
-      default: 
-      return items
+      case 'Done':
+        return items.filter(e => e.done)
+      case 'Active':
+        return items.filter(e => !e.done)
+      default:
+        return items
     }
   }
 
@@ -60,6 +62,7 @@ const Main = () => {
   }
 
   const toggleProperty = (propName, id) => {
+
     setTodos((prev) => {
       const idx = prev.findIndex(el => el.id === id)
       const updatedItem = { ...prev[idx], [propName]: !prev[idx][propName] && true }
@@ -84,6 +87,10 @@ const Main = () => {
     setTerm(element.target.value)
   }
 
+  const onToggleFilter = (filter) => {
+    setfilter(filter)
+  }
+
 
 
 
@@ -94,11 +101,11 @@ const Main = () => {
         doneCount={doneCount} />
       <Row justify='center' gutter={[0, 10]}>
         <Col span={5}>
-          <SearchPanel onSearch={onSearch} value={term}/>
+          <SearchPanel onSearch={onSearch} value={term} />
         </Col>
         <Col span={1} />
         <Col span={4}>
-          <TodoStatusFilter />
+          <TodoStatusFilter onToggleFilter={onToggleFilter} />
         </Col>
       </Row>
       <Row justify='center'>

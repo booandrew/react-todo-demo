@@ -1,15 +1,24 @@
 import React from 'react';
-import { Button, Radio } from 'antd';
+import { Radio } from 'antd';
 import styled from 'styled-components';
 
 
-const TodoStatusFilter = () => {
+const TodoStatusFilter = ({ onToggleFilter }) => {
+
+  const buttons = [
+    { label: 'Active' },
+    { label: 'All' },
+    { label: 'Done' }
+  ].map(({ label }) => <Radio.Button
+    value={label}
+    key={label}
+    onClick={() => onToggleFilter(label)} >{label}</Radio.Button>)
+
+
   return (
     <ButtonsWrapper>
       <Radio.Group>
-        <Radio.Button value="large">Active</Radio.Button>
-        <Radio.Button value="default">All</Radio.Button>
-        <Radio.Button value="small">Done</Radio.Button>
+        {buttons}
       </Radio.Group>
     </ButtonsWrapper>
   );
