@@ -33,6 +33,7 @@ const AddItemForm = ({ onAdded }) => {
 
 const InputWrapper = styled.div`
   flex: .97;
+  font-size: 16px;
 `
 
 const CustomForm = styled.form`

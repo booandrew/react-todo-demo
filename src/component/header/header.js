@@ -22,13 +22,9 @@ const Navbar = styled.div`
   justify-content: space-between;
   align-items: baseline;  
   width: 100%;
-  @media (max-width: 420px) {
-    flex-direction: column;
-  }
 `
 
 const Title = styled.h1`
-  font-size: 26px;
   margin: 0px 0px;
   `
 const Text = styled.p`
