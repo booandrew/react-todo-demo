@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { DeleteOutlined } from '@ant-design/icons';
 
-const TodoListItem = ({ 
-  label, 
+const TodoListItem = ({
+  label,
   onDeleted,
   onToggleImportant,
   onToggleDone,
@@ -25,30 +25,36 @@ const TodoListItem = ({
           {label}
         </CustomText>
         <ButtonWrapper>
-        <Button
-          type="primary"
-          icon={<ExclamationCircleOutlined />}
-          onClick={onToggleImportant}
-        />
-         <Button
-          type="danger"
-          icon={<DeleteOutlined />}
-          onClick={onDeleted}
-        />
+          <CustomButton
+            type="primary"
+            icon={<ExclamationCircleOutlined />}
+            onClick={onToggleImportant}
+          />
+          <Button
+            type="danger"
+            icon={<DeleteOutlined />}
+            onClick={onDeleted}
+          />
         </ButtonWrapper>
       </Item>
     </List.Item>
   );
 }
 
+const CustomButton = styled(Button)`
+  margin-right: 10px;
+`
+
 const CustomText = styled(Text)`
-    font-size: 1.2rem;
-    cursor: pointer;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  @media (max-width: 992px) {
+  font-size: 1rem;
+  }
 `
 
 const ButtonWrapper = styled.span`
-  display: flex;
-  justify-content: space-between;
   width: 80px;
 `
 
