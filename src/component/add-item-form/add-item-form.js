@@ -12,18 +12,23 @@ const AddItemForm = ({ onAdded }) => {
 
   const onSubmit = (e) => {
     e.preventDefault(e)
-    onAdded(label)
-    setLabel('')
+    if (label) {
+      onAdded(label)
+      setLabel('')
+    } else {
+      alert('Эх, если бы можно было ничего не делать...')
+    }
   }
 
 
   return (
     <CustomForm onSubmit={onSubmit}>
         <InputWrapper>
-          <Input placeholder="type new task" onChange={onLabelChange} value={label} />
+          <Input placeholder="type new task" onChange={onLabelChange} value={label} size="large" />
         </InputWrapper>
         <Button
           type="primary"
+          size='large'
           onClick={onSubmit}>
           Add Task
       </Button>
@@ -33,6 +38,7 @@ const AddItemForm = ({ onAdded }) => {
 
 const InputWrapper = styled.div`
   flex: .97;
+  font-size: 16px;
 `
 
 const CustomForm = styled.form`

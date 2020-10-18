@@ -1,5 +1,5 @@
   [
-    { "id": 1, "label": "Try to search", "important": false, "done": false },
-    { "id": 2, "label": "Click on task", "important": false, "done": false },
-    { "id": 3, "label": "Delete all", "important": false, "done": false }
+    { "id": 1, "label": "Поболтать про бургеры во Франции", "important": false, "done": true },
+    { "id": 2, "label": "Процитировать пророка Иезекииля", "important": true, "done": false },
+    { "id": 3, "label": "Пострелять", "important": false, "done": false }
   ]
