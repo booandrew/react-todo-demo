@@ -16,6 +16,7 @@ const Main = () => {
     todosAPI.getTodos()
       .then(res => setTodos(res))
   }, [])
+  
 
   const [todoData, setTodos] = useState([])
   const [term, setTerm] = useState('')
