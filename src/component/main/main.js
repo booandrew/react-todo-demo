@@ -119,7 +119,7 @@ const Main = () => {
 
 const InputWrapper = styled.div`
   flex: .97;
-  @media (max-width: 420px) {
+  @media (max-width: 1000px) {
     width: 100%;
     flex: 1;
     margin-bottom: 10px;
@@ -141,7 +141,7 @@ const Layout = styled.div`
   flex-direction: column;
   max-width: 590px;
   margin: 20px auto;
-  @media (max-width: 620px) {
+  @media (max-width: 100px) {
     margin: 0px 20px;
   }
 `
