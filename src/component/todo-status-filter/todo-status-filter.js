@@ -1,6 +1,10 @@
 import React from 'react';
-import { Radio } from 'antd';
+import { Button, Dropdown, Menu, Radio } from 'antd';
 import styled from 'styled-components';
+import { FilterOutlined } from '@ant-design/icons';
+import { render } from '@testing-library/react';
+import Text from 'antd/lib/typography/Text';
+
 
 
 const TodoStatusFilter = ({ onToggleFilter }) => {
@@ -9,23 +13,23 @@ const TodoStatusFilter = ({ onToggleFilter }) => {
     { label: 'Active' },
     { label: 'All' },
     { label: 'Done' }
-  ].map(({ label }) => <Radio.Button
+  ].map(({ label }) => <Menu.Item
     value={label}
     key={label}
-    onClick={() => onToggleFilter(label)} >{label}</Radio.Button>)
+    onClick={() => onToggleFilter(label)} >{label}</Menu.Item>)
 
-  return (
-    <ButtonsWrapper>
-      <Radio.Group size='large'>
-        {buttons}
-      </Radio.Group>
-    </ButtonsWrapper>
+
+  const menu = (
+    <Menu>
+      {buttons}
+    </Menu>
+  );
+
+  return(
+      <Dropdown overlay={menu}>
+        <Button size='large' icon={<FilterOutlined/> }/>
+      </Dropdown>
   );
 }
-
-const ButtonsWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end
-`
 
 export default TodoStatusFilter;

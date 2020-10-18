@@ -12,8 +12,12 @@ const AddItemForm = ({ onAdded }) => {
 
   const onSubmit = (e) => {
     e.preventDefault(e)
-    onAdded(label)
-    setLabel('')
+    if (label) {
+      onAdded(label)
+      setLabel('')
+    } else {
+      alert('Эх, если бы можно было ничего не делать...')
+    }
   }
 
 

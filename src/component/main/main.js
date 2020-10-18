@@ -129,12 +129,7 @@ const Container = styled.div`
   `
 
 const InputWrapper = styled.div`
-  flex: .97;
-  @media (max-width: 992px) {
-    width: 100%;
-    flex: 1;
-    margin-bottom: 10px;
-  }
+  flex: .9;
 `
 
 const FilterWrapper = styled.div`
@@ -142,9 +137,6 @@ const FilterWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
-  @media (max-width: 992px) {
-    flex-direction: column;
-  }
 `
 
 const Layout = styled.div`

@@ -17,13 +17,15 @@ const TodoListItem = ({
   return (
     <List.Item>
       <Item>
-        <CustomText
-          delete={done}
-          strong={important}
-          mark={important}
-          onClick={onToggleDone}>
-          {label}
-        </CustomText>
+        <TextWrapper>
+          <CustomText
+            delete={done}
+            strong={important}
+            mark={important}
+            onClick={onToggleDone}>
+            {label}
+          </CustomText>
+        </TextWrapper>
         <ButtonWrapper>
           <CustomButton
             type="primary"
@@ -41,6 +43,11 @@ const TodoListItem = ({
   );
 }
 
+const TextWrapper = styled.div`
+  word-wrap: break-word;
+  width: 250px;
+`
+
 const CustomButton = styled(Button)`
   margin-right: 10px;
 `
@@ -50,7 +57,7 @@ const CustomText = styled(Text)`
   cursor: pointer;
 
   @media (max-width: 992px) {
-  font-size: 1rem;
+    font-size: 1rem;
   }
 `
 
