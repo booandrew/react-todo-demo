@@ -10,7 +10,7 @@ const Header = ({ doneCount, todoCount }) => {
   return (
       <Navbar>
         <Title>TodoApp</Title>
-        <Subtitle level={5} type="secondary">{`${todoCount} more todo, ${doneCount} done`}</Subtitle>
+        <Text>{`${todoCount} more todo, ${doneCount} done`}</Text>
       </Navbar>
 
   );
@@ -28,10 +28,13 @@ const Navbar = styled.div`
 `
 
 const Title = styled.h1`
+  font-size: 26px;
   margin: 0px 0px;
   `
-const Subtitle = styled.h3`
+const Text = styled.p`
+font-size: 20px;
   color: #898B8C;
+
 `
 
 export default Header;

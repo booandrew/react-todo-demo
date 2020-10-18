@@ -96,26 +96,41 @@ const Main = () => {
 
   return (
     <Layout>
-      <Header
-        todoCount={todoCount}
-        doneCount={doneCount} />
 
-          <FilterWrapper justify='center' gutter={[2, 10]}>
-            <InputWrapper>
-              <SearchPanel onSearch={onSearch} value={term} />
-            </InputWrapper>
-            <TodoStatusFilter onToggleFilter={onToggleFilter} />
-          </FilterWrapper>
+      <Container>
+        <Header
+          todoCount={todoCount}
+          doneCount={doneCount} />
+      </Container>
 
-          <TodoList
-            todos={visibleItems}
-            onDeleted={deleteTodo}
-            onToggleDone={setDone}
-            onToggleImportant={setImportant} />
-          <AddItemForm onAdded={addTodo} />
+      <Container>
+        <InputWrapper>
+          <SearchPanel onSearch={onSearch} value={term} />
+        </InputWrapper>
+        <TodoStatusFilter onToggleFilter={onToggleFilter} />
+      </Container>
+
+      <Container>
+        <TodoList
+          todos={visibleItems}
+          onDeleted={deleteTodo}
+          onToggleDone={setDone}
+          onToggleImportant={setImportant} />
+      </Container>
+
+      <Container>
+        <AddItemForm onAdded={addTodo} />
+      </Container>
+
     </Layout>
   );
 }
+
+
+const Container = styled.div`
+ max-width: 400px;
+  margin: auto;
+  `
 
 const InputWrapper = styled.div`
   flex: .97;
@@ -137,10 +152,7 @@ const FilterWrapper = styled.div`
 `
 
 const Layout = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-width: 590px;
-  margin: 20px auto;
+  padding: 20px;
   @media (max-width: 100px) {
     margin: 0px 20px;
   }
