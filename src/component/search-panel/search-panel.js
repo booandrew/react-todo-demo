@@ -7,7 +7,7 @@ const SearchPanel = ({onSearch, value}) => {
     <>
       <Input
         placeholder="type to search"
-        size='middle'
+        size='large'
         onChange={onSearch}
         value={value}
       />

@@ -14,10 +14,9 @@ const TodoStatusFilter = ({ onToggleFilter }) => {
     key={label}
     onClick={() => onToggleFilter(label)} >{label}</Radio.Button>)
 
-
   return (
     <ButtonsWrapper>
-      <Radio.Group>
+      <Radio.Group size='large'>
         {buttons}
       </Radio.Group>
     </ButtonsWrapper>

@@ -6,13 +6,11 @@ import styled from 'styled-components'
 
 const Header = ({ doneCount, todoCount }) => {
 
-
   return (
       <Navbar>
         <Title>TodoApp</Title>
         <Text>{`${todoCount} more todo, ${doneCount} done`}</Text>
       </Navbar>
-
   );
 }
 

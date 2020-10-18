@@ -24,6 +24,7 @@ const AddItemForm = ({ onAdded }) => {
         </InputWrapper>
         <Button
           type="primary"
+          size='large'
           onClick={onSubmit}>
           Add Task
       </Button>
