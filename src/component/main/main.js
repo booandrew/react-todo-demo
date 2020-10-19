@@ -1,9 +1,7 @@
-import { Col, Row } from 'antd';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
+
 import { todosAPI } from '../../service/api-service';
-
-
 import AddItemForm from '../add-item-form';
 import Header from '../header';
 import SearchPanel from '../search-panel';
@@ -25,15 +23,18 @@ const Main = () => {
   const todoCount = todoData.length - doneCount
 
   const searchItem = (items, term) => {
+
     if (term.length === 0) {
       return items
     }
     return items.filter((item) => {
       return item.label.indexOf(term) > -1
     })
+
   }
 
   const filterItems = (items, filter) => {
+
     switch (filter) {
       case 'Done':
         return items.filter(e => e.done)
@@ -42,15 +43,15 @@ const Main = () => {
       default:
         return items
     }
+
   }
 
   const visibleItems = filterItems(searchItem(todoData, term), filter)
 
-  const deleteTodo = (id) => {
-    setTodos((prev) => prev.filter((todo) => todo.id !== id))
-  }
+  
 
   const addTodo = (label) => {
+
     setTodos((prev) => [
       ...prev,
       {
@@ -60,13 +61,17 @@ const Main = () => {
         label,
       }
     ])
+
   }
 
-  const toggleProperty = (propName, id) => {
+  const toggleProperty = (propName, id, value) => {
 
     setTodos((prev) => {
       const idx = prev.findIndex(el => el.id === id)
-      const updatedItem = { ...prev[idx], [propName]: !prev[idx][propName] && true }
+      const updatedItem = propName === 'label' ? 
+      { ...prev[idx], [propName]: value } :
+      { ...prev[idx], [propName]: !prev[idx][propName] && true }
+
       const newArray = [
         ...prev.slice(0, idx),
         updatedItem,
@@ -92,7 +97,13 @@ const Main = () => {
     setfilter(filter)
   }
 
+  const onEditSubmit = (value, id) => {
+    toggleProperty('label', id, value)
+  }
 
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id))
+  }
 
 
   return (
@@ -114,7 +125,8 @@ const Main = () => {
           todos={visibleItems}
           onDeleted={deleteTodo}
           onToggleDone={setDone}
-          onToggleImportant={setImportant} />
+          onToggleImportant={setImportant}
+          onEditSubmit={onEditSubmit} />
 
         <AddItemForm onAdded={addTodo} />
       </Container>

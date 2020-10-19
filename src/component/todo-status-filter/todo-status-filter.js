@@ -1,11 +1,6 @@
 import React from 'react';
-import { Button, Dropdown, Menu, Radio } from 'antd';
-import styled from 'styled-components';
+import { Button, Dropdown, Menu } from 'antd';
 import { FilterOutlined } from '@ant-design/icons';
-import { render } from '@testing-library/react';
-import Text from 'antd/lib/typography/Text';
-
-
 
 const TodoStatusFilter = ({ onToggleFilter }) => {
 
@@ -25,10 +20,10 @@ const TodoStatusFilter = ({ onToggleFilter }) => {
     </Menu>
   );
 
-  return(
-      <Dropdown overlay={menu}>
-        <Button size='large' icon={<FilterOutlined/> }/>
-      </Dropdown>
+  return (
+    <Dropdown overlay={menu}>
+      <Button size='large' icon={<FilterOutlined />} />
+    </Dropdown>
   );
 }
 

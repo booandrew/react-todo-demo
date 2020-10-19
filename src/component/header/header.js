@@ -1,8 +1,5 @@
 import React from 'react';
-
 import styled from 'styled-components'
-
-
 
 const Header = ({ doneCount, todoCount }) => {
 
@@ -13,7 +10,6 @@ const Header = ({ doneCount, todoCount }) => {
       </Navbar>
   );
 }
-
 
 const Navbar = styled.div`
   display: flex;
@@ -26,10 +22,10 @@ const Navbar = styled.div`
 const Title = styled.h1`
   margin: 0px 0px;
   `
-const Text = styled.p`
-font-size: 16px;
-  color: #898B8C;
 
+const Text = styled.p`
+  font-size: 16px;
+  color: #898B8C;
 `
 
 export default Header;

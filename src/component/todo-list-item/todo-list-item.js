@@ -1,9 +1,8 @@
-import { Button, List } from 'antd';
+import { Button, Dropdown, Input, List, Menu } from 'antd';
 import Text from 'antd/lib/typography/Text';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
-import { DeleteOutlined } from '@ant-design/icons';
+import { EllipsisOutlined } from '@ant-design/icons';
 
 const TodoListItem = ({
   label,
@@ -12,32 +11,66 @@ const TodoListItem = ({
   onToggleDone,
   done,
   important,
-}) => {
+  id,
+  onEditSubmit}) => {
+
+
+  const [isEdited, setIsEdited] = useState(false)
+  const [value, setValue] = useState(label)
+
+  const onValueChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const onEdit = () => {
+    setIsEdited(true)
+  }
+
+  const onSubmit = () => {
+    onEditSubmit(value, id)
+    setIsEdited(false)
+  }
+
+  const buttons = [
+    { label: 'Important', purpose: onToggleImportant },
+    { label: 'Edit', purpose: onEdit },
+    { label: 'Delete', purpose: onDeleted }
+  ].map(({ label, purpose }) => <Menu.Item
+    key={label}
+    onClick={purpose} >{label}</Menu.Item>)
+
+
+  const menu = (
+    <Menu>
+      {buttons}
+    </Menu>
+  );
 
   return (
     <List.Item>
       <Item>
+
         <TextWrapper>
-          <CustomText
-            delete={done}
-            strong={important}
-            mark={important}
-            onClick={onToggleDone}>
-            {label}
-          </CustomText>
+          {isEdited ?
+            <Input placeholder="type new task" onBlur={onSubmit} onChange={onValueChange} value={value} size="middle" />
+            :
+            <CustomText
+              delete={done}
+              strong={important}
+              mark={important}
+              onClick={onToggleDone}>
+              {label}
+            </CustomText>
+          }
+
         </TextWrapper>
+
         <ButtonWrapper>
-          <CustomButton
-            type="primary"
-            icon={<ExclamationCircleOutlined />}
-            onClick={onToggleImportant}
-          />
-          <Button
-            type="danger"
-            icon={<DeleteOutlined />}
-            onClick={onDeleted}
-          />
+          <Dropdown overlay={menu}>
+            <Button size='large' icon={<EllipsisOutlined />} />
+          </Dropdown>
         </ButtonWrapper>
+
       </Item>
     </List.Item>
   );
@@ -52,10 +85,6 @@ const TextWrapper = styled.div`
   
 `
 
-const CustomButton = styled(Button)`
-  margin-right: 10px;
-`
-
 const CustomText = styled(Text)`
   font-size: 1.2rem;
   cursor: pointer;
@@ -67,7 +96,8 @@ const CustomText = styled(Text)`
 
 const ButtonWrapper = styled.span`
   display: flex;
-  width: 80px;
+  justify-content: flex-end;
+  width: 50px;
 `
 
 const Item = styled.div`
